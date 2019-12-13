@@ -20,3 +20,8 @@ install-package microsoft.entityframeworkcore.sqlserver -version 2.2.0
 Webin içindeki data klasörü silindi.Zaten onun aynısını insfrastructure taşıdık yukarıda
 
 add-migration Identity ve update-database insfrastructureda çalıştırdık
+
+loginPartialdaki üstte identityuser ı appplicationuser la değiştir. viewimporta usingi ekle..
+whatsappta detayı var
+
+push categoryentityden önce add migration infrastructure a problem yaşarsan clean solution
