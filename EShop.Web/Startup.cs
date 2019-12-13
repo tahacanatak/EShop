@@ -14,6 +14,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using EShop.Infrastructure.Data;
 using EShop.ApplicationCore.Entities;
+using EShop.ApplicationCore.Interfaces;
+using EShop.ApplicationCore.Services;
 
 namespace EShop.Web
 {
@@ -41,7 +43,13 @@ namespace EShop.Web
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ApplicationUser, IdentityRole>()
                 .AddDefaultUI(UIFramework.Bootstrap4)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders();
+
+            services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>)); // Irepository catgory talep ederse Efrepository category verecek
+
+            services.AddScoped<ICategoryService, CategoryService>();
+
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
