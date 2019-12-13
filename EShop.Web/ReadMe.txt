@@ -24,4 +24,6 @@ add-migration Identity ve update-database insfrastructureda çalıştırdık
 loginPartialdaki üstte identityuser ı appplicationuser la değiştir. viewimporta usingi ekle..
 whatsappta detayı var
 
-push categoryentityden önce add migration infrastructure a problem yaşarsan clean solution
+önce add migration infrastructure a problem yaşarsan clean solution
+pushlandı. // CategoryEntity
+update-database
