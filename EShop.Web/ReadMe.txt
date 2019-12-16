@@ -27,3 +27,16 @@ whatsappta detayı var
 önce add migration infrastructure a problem yaşarsan clean solution
 pushlandı. // CategoryEntity
 update-database
+
+----------------
+16.12.2019
+update-database-migration:0 veritabanını ucurduk
+dbcontexte baksın yoksa olustursun
+startup da Configure metoduna
+   using(var scope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                using(var db = scope.ServiceProvider.GetService<ApplicationDbContext>())
+                {
+                    db.Database.Migrate();
+                }
+            }
