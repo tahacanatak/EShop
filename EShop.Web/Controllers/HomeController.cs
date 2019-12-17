@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using EShop.Web.Models;
 using EShop.ApplicationCore.Interfaces;
+using EShop.Web.Interfaces;
 
 namespace EShop.Web.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index([FromServices] ICategoryService categoryService)
+        private readonly IHomeIndexViewModelService _homeIndexViewModelService;
+
+        public HomeController(IHomeIndexViewModelService homeIndexViewModelService)
         {
-            return View(categoryService.ListCategories());
+            _homeIndexViewModelService = homeIndexViewModelService;
+        }
+
+        public IActionResult Index()
+        {
+            return View(_homeIndexViewModelService.GetIndexViewModel());
         }
 
         public IActionResult Privacy()

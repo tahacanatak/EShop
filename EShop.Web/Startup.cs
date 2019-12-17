@@ -16,6 +16,8 @@ using EShop.Infrastructure.Data;
 using EShop.ApplicationCore.Entities;
 using EShop.ApplicationCore.Interfaces;
 using EShop.ApplicationCore.Services;
+using EShop.Web.Services;
+using EShop.Web.Interfaces;
 
 namespace EShop.Web
 {
@@ -47,8 +49,8 @@ namespace EShop.Web
                 .AddDefaultTokenProviders();
 
             services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>)); // Irepository catgory talep ederse Efrepository category verecek
-
             services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<IHomeIndexViewModelService, HomeIndexViewModelService>();
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
