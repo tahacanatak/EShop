@@ -44,3 +44,10 @@ startup da Configure metoduna
 ---------------
 17.12.2019
 Seed methodların adı değiştirildi product entity olusturuldu
+add-migration Entity product
+update-database
+push product entity
+
+seed metodu güncellendikten sonra
+update-database -migration:0
+update-database
