@@ -19,11 +19,13 @@ namespace EShop.Infrastructure.Data
         {
             base.OnModelCreating(builder);
 
-            //config klasöründen bütün ayarlari ceker
+            //config klasöründen bütün ayarlari ceker.Ayarlar burayada yazılabilir
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
         }
 
         public DbSet<Category> Categories { get; set; }
+
+        public DbSet<Product> Products { get; set; }
     }
 }

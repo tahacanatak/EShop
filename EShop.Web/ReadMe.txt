@@ -40,3 +40,7 @@ startup da Configure metoduna
                     db.Database.Migrate();
                 }
             }
+
+---------------
+17.12.2019
+Seed methodların adı değiştirildi product entity olusturuldu
