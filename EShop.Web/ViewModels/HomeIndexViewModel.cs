@@ -8,9 +8,12 @@ namespace EShop.Web.ViewModels
 {
     public class HomeIndexViewModel
     {
-
         public List<CategoryViewModel> Categories { get; set; }
 
         public List<Product> Products { get; set; }
+
+        public PaginationInfoViewModel PaginationInfo { get; set; }
+
+
     }
 }
