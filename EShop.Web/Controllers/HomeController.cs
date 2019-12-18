@@ -19,9 +19,9 @@ namespace EShop.Web.Controllers
             _homeIndexViewModelService = homeIndexViewModelService;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(int? cid)
         {
-            return View(_homeIndexViewModelService.GetIndexViewModel());
+            return View(_homeIndexViewModelService.GetHomeIndexViewModel(cid));
         }
 
         public IActionResult Privacy()

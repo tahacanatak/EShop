@@ -9,6 +9,6 @@ namespace EShop.Web.Interfaces
 {
     public interface IHomeIndexViewModelService
     {
-        HomeIndexViewModel GetIndexViewModel();
+        HomeIndexViewModel GetHomeIndexViewModel(int? categoryId);
     }
 }

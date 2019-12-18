@@ -15,7 +15,11 @@
                             <ul>
                                 @foreach (var item in Model.Categories)
                                 {
-                                <li><a href="#">@item.CategoryName <span>4</span></a></li>
+                                    <li>
+                                        <a asp-route-cid="@item.Id">
+                                            @item.CategoryName <span>@item.ProductCount</span>
+                                        </a>
+                                    </li>
                                 }
 
                             </ul>
@@ -58,30 +62,30 @@
                                 <div class="row">
                                     @foreach (var item in Model.Products)
                                     {
-                                    <div class="col-lg-6 col-md-6 col-xl-3">
-                                        <div class="product-wrapper mb-30">
-                                            <div class="product-img">
-                                                <a href="#">
-                                                    <img src="~/assets/img/product/fashion-2/2.jpg" alt="">
-                                                </a>
-                                                <div class="product-action">
-                                                    <a class="animate-left" title="Wishlist" href="#">
-                                                        <i class="pe-7s-like"></i>
+                                        <div class="col-lg-6 col-md-6 col-xl-3">
+                                            <div class="product-wrapper mb-30">
+                                                <div class="product-img">
+                                                    <a href="#">
+                                                        <img src="~/assets/img/product/fashion-2/2.jpg" alt="">
                                                     </a>
-                                                    <a class="animate-top" title="Add To Cart" href="#">
-                                                        <i class="pe-7s-cart"></i>
-                                                    </a>
-                                                    <a class="animate-right" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
-                                                        <i class="pe-7s-look"></i>
-                                                    </a>
+                                                    <div class="product-action">
+                                                        <a class="animate-left" title="Wishlist" href="#">
+                                                            <i class="pe-7s-like"></i>
+                                                        </a>
+                                                        <a class="animate-top" title="Add To Cart" href="#">
+                                                            <i class="pe-7s-cart"></i>
+                                                        </a>
+                                                        <a class="animate-right" title="Quick View" data-toggle="modal" data-target="#exampleModal" href="#">
+                                                            <i class="pe-7s-look"></i>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                                    <h4><a href="#">@item.ProductName</a></h4>
+                                                    <span>@item.UnitPrice ₺</span>
                                                 </div>
                                             </div>
-                                            <div class="product-content">
-                                                <h4><a href="#">@item.ProductName</a></h4>
-                                                <span>@item.UnitPrice ₺</span>
-                                            </div>
                                         </div>
-                                    </div>
                                     }
                                 </div>
                             </div>
