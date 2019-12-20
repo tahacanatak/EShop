@@ -1,4 +1,4 @@
-﻿@model PaginationInfoViewModel
+﻿@model PaginationInfoViewModel 
 @{
     var routeData = ViewContext.HttpContext.Request.Query
                      .ToDictionary(x => x.Key, x => x.Value.ToString());

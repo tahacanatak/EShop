@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using EShop.Web.Models;
 using EShop.ApplicationCore.Interfaces;
 using EShop.Web.Interfaces;
+using Microsoft.AspNetCore.Http;
+using EShop.Web.Extensions;
 
 namespace EShop.Web.Controllers
 {
@@ -21,11 +23,17 @@ namespace EShop.Web.Controllers
 
         public IActionResult Index(int? cid, int? p)
         {
-            return View(_homeIndexViewModelService.GetHomeIndexViewModel(cid, p ?? 1, 12)); // p yi gir nullsa 1 gir
+            List<string> adlar = new List<string> { "ali", "veli" };
+
+            HttpContext.Session.Set("adlar", adlar);
+
+            return View(_homeIndexViewModelService.GetHomeIndexViewModel(cid, p ?? 1, Constants.ITEMS_PER_PAGE)); // p yi gir nullsa 1 gir
         }
 
         public IActionResult Privacy()
         {
+            ViewBag.ad = HttpContext.Session.GetString("adlar");
+            List<string> isimler = HttpContext.Session.Get<List<string>>("adlar");
             return View();
         }
 

@@ -53,6 +53,22 @@ namespace EShop.Web
             services.AddScoped<IHomeIndexViewModelService, HomeIndexViewModelService>();
 
 
+            //https://docs.microsoft.com/en-us/aspnet/core/fundamentals/app-state?view=aspnetcore-2.2
+            services.AddDistributedMemoryCache();
+
+            services.AddSession(options =>
+            {
+                // Set a short timeout for easy testing.
+                options.IdleTimeout = TimeSpan.FromSeconds(10);
+                options.Cookie.HttpOnly = true;
+                // Make the session cookie essential
+                options.Cookie.IsEssential = true;
+            });
+
+
+
+
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
@@ -86,6 +102,8 @@ namespace EShop.Web
             app.UseCookiePolicy();
 
             app.UseAuthentication();
+            app.UseSession();
+
 
             app.UseMvc(routes =>
             {
