@@ -2,10 +2,9 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace EShop.Web.Extensions
+namespace EShop.Infrastructure.Extensions
 {
     public static class SessionExtensions
     {
@@ -23,5 +22,4 @@ namespace EShop.Web.Extensions
                 JsonConvert.DeserializeObject<T>(value);
         }
     }
-
 }

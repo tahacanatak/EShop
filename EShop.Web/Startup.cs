@@ -18,6 +18,7 @@ using EShop.ApplicationCore.Interfaces;
 using EShop.ApplicationCore.Services;
 using EShop.Web.Services;
 using EShop.Web.Interfaces;
+using EShop.Infrastructure.Services;
 
 namespace EShop.Web
 {
@@ -65,7 +66,8 @@ namespace EShop.Web
                 options.Cookie.IsEssential = true;
             });
 
-
+            services.AddHttpContextAccessor();
+            services.AddScoped<IBasketService, BasketService>();
 
 
 

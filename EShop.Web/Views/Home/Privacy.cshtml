@@ -6,4 +6,9 @@
 <p>Use this page to detail your site's privacy policy.</p>
 
 
-@ViewBag.ad
+@foreach (var item in ViewBag.items)
+{
+    <p>
+        @item.ProductName @item.UnitPrice
+    </p>
+}
