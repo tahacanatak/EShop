@@ -334,6 +334,7 @@
                 data: {productId : id},
                 success: function (data) {
                     console.log(data);
+                    $(".header-cart").replaceWith(data.headerBasketHtml);
                 }
             });
         });
