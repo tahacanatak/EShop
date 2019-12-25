@@ -1,12 +1,15 @@
 ﻿@model HeaderCartViewModel
-
-
 <div class="header-cart">
     <a class="icon-cart-furniture" href="#">
         <i class="ti-shopping-cart"></i>
-        <span class="shop-count-furniture green">@Model.TotalItems.ToString("00")</span>
+        <span class="shop-count-furniture green cart-item-count">@Model.TotalItems.ToString("00")</span>
     </a>
     <ul class="cart-dropdown">
+        @if (Model.TotalItems == 0)
+        {
+            <li class="my-3 text-center">Sepetinizde ürün bulunmamaktadır.</li>
+        }
+
         @foreach (var item in Model.BasketItems)
         {
             <li class="single-product-cart">

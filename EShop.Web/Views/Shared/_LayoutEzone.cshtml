@@ -345,8 +345,14 @@
                 url : "@Url.Action("RemoveFromBasket","Basket")",
                 data: {productId : id},
                 success: function (data) {
-                    console.log(data);
-                    $(".header-cart").replaceWith(data.headerBasketHtml);
+                    //console.log(data);
+                    var html = $.parseHTML(data.headerBasketHtml);
+                    var cartDropDown = $(html).find(".cart-dropdown");
+                    $(".cart-dropdown").html(cartDropDown.html());
+
+                    var cartItemCount = $(html).find(".cart-item-count");
+                    $(".cart-item-count").html(cartItemCount.html());
+
                 }
             });
         });
