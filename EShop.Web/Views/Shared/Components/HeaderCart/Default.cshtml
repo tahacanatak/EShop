@@ -19,7 +19,7 @@
                     <span>@item.UnitPrice.ToString("0.00")₺ x @item.Quantity</span>
                 </div>
                 <div class="cart-delete">
-                    <a href="#"><i class="ti-trash"></i></a>
+                    <a href="#" data-remove-from-basket-id="@item.ProductId"><i class="ti-trash"></i></a>
                 </div>
             </li>
         }

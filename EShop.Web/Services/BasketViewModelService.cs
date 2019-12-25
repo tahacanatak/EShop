@@ -42,6 +42,11 @@ namespace EShop.Web.Services
             return vm;
         }
 
+        public void RemoveFromBasket(int productId)
+        {
+            _basketService.RemoveItemFromBasket(productId);
+        }
+
         public int TotalItems()
         {
             return _basketService.GetBasketItemCount();

@@ -65,5 +65,19 @@ namespace EShop.Web.Controllers
                 return writer.ToString();
             }
         }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveFromBasket(int productId)
+        {
+            _basketViewModelService.RemoveFromBasket(productId);
+
+            var vm = new AjaxHeaderBasketViewModel
+            {
+                HeaderBasketHtml = await RenderViewComponentAsync("HeaderCart", null),
+                TotalItems = _basketViewModelService.TotalItems()
+            };
+
+            return Json(vm); // toplam öğe sayısını ve sepet html'ini döndür
+        }
     }
 }

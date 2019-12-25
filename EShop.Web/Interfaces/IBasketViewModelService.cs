@@ -11,6 +11,9 @@ namespace EShop.Web.Interfaces
     {
         void AddToBasket(int productId, int quantity = 1);
 
+        void RemoveFromBasket(int productId);
+
+
         IReadOnlyCollection<BasketItem> GetBasketItems();
 
         int TotalItems();
